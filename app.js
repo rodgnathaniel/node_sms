@@ -37,12 +37,20 @@ app.post('/', (req, res) => {
     const text = req.body.text;
 
     nexmo.message.sendSms(
-        '19842920478', number, text { type: 'unicode' },
+        '19842920478', number, text, { type: 'unicode' },
         (err, responseData) => {
             if(err) {
                 console.log(err);
             } else {
                 console.dir(responseData);
+                //get data from response 
+                const data = {
+                    id: responseData.messages[0]['message-id'],
+                    number: responseData.messages[0]['to']
+                }
+
+                //emit to client
+                io.emit('smsStatus', data);
             }
         }
     )
@@ -54,3 +62,11 @@ const port = 3000;
 //Start Server
 const server = app.listen(port, () => console.log(`Server started on port ${port}`));
 
+//connect to socket.io
+const io = socketio(server);
+io.on('connection', (socket) => {
+    console.log('Connected');
+    io.on('disconnect', () => {
+        console.log('Disconnected');
+    })
+})
