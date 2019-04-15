@@ -1,0 +1,27 @@
+{
+  "name": "nodetextapp",
+  "version": "1.0.0",
+  "description": "send sms from browser",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodgnathaniel/node_sms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodgnathaniel/node_sms/issues"
+  },
+  "homepage": "https://github.com/rodgnathaniel/node_sms#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "nexmo": "^2.4.1",
+    "nodemon": "^1.18.11",
+    "socket.io": "^2.2.0"
+  }
+}
