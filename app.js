@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-// Catch form submit 
+//Catch form submit 
 app.post('/', (req, res) => {
     // res.send(req.body);
     // console.log(req.body);
@@ -62,7 +62,7 @@ const port = 3000;
 //Start Server
 const server = app.listen(port, () => console.log(`Server started on port ${port}`));
 
-//connect to socket.io
+//Connect to socket.io
 const io = socketio(server);
 io.on('connection', (socket) => {
     console.log('Connected');
