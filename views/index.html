@@ -8,10 +8,13 @@
     <title>Node SMS</title>
 </head>
 <style>
+
     @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
     body{
         background-color: black;
     }
+
     .container{
         background-color: ivory;
         border-radius: 11px 11px 11px 11px;
@@ -23,6 +26,7 @@
         flex-direction: column;
         justify-content: center;
     }
+
     #number{
         width: 40%;
         height: 5%;
@@ -33,6 +37,7 @@
         background-color:lightcyan;
         text-align: center;
     }
+
     #msg{
         width: 70%;
         height: 10%;
@@ -42,6 +47,7 @@
         border-radius: 6px 6px 6px 6px;
         background-color:lightcyan;
     }
+
     #button{
         width: 30%;
         height: 7%;
@@ -53,6 +59,7 @@
         font-size: 100%;
 
     }
+
     h2{
         font-family: 'Indie Flower', cursive;
         text-align: center;
@@ -65,19 +72,24 @@
         margin-left: 10%;
         margin-right: 10%;
     }
+
     p{
         color: black;
         text-align: center;
         margin-bottom: 5%;
     }
+
 </style>
 <body>
 
     <div class="container">
+
         <h2>Simulizi</h2>
+        
         <input type="tel" name="number" id="number" placeholder="Phone Number">
         <input type="text" name="msg" id="msg" placeholder="Enter text message">
         <input type="button" id="button" value="Send Text" placeholder="button button-primary">
+        
         <p class="response"></p>
     </div>
 
