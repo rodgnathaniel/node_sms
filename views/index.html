@@ -82,6 +82,35 @@
 </style>
 <body>
 
+    <main>
+        <div class="contacts_display">
+
+        </div>
+    
+
+
+    </main>
+
+        <div class="newcontact_modal">
+
+            <button class="close_modal" id="close_newcontact_modal">+</button>
+
+            <span>New Contact</span>
+
+            <input id="new_name" placeholder="Name" type="text"></input>
+            <input id="new_phone" placeholder="Phone" type="number"></input>
+            <input id="new_email" placeholder="E-mail" type="email"></input>
+            <input placeholder="Birthday" type="date"></input>
+            <input placeholder="Website" type="url"></input>
+
+            <button id="save_contact_btn">Save</button>
+
+        </div>
+        
+                
+
+
+
     <div class="container">
 
         <h2>Simulizi</h2>
@@ -95,6 +124,46 @@
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/main.js"></script>
+
+
+
+        <script>
+
+            let new_name = document.querySelector('#new_name')
+            let new_phone = document.querySelector('#new_phone')
+            let new_email = document.querySelector('#new_email')
+        
+            save_contact_btn.onclick = function() {        
+                axios.post("{% url 'home:save_contact' %}",
+                        {
+                            new_name: new_name,
+                            new_phone: new_phone,
+                            new_email: new_email,
+                        }, {
+                            headers: {
+                                "X-CSRFToken": "{{ csrf_token }}"
+                            }
+                        }
+                    ).then(function(response) {
+                    })
+            }
+
+            new_contact = document.querySelector('#new_contact')
+            close_newcontact = document.querySelector('#close_newcontact_modal')
+            save_contact_btn = document.querySelector('#save_contact_btn')
+
+            new_contact.onclick = function(){
+                document.querySelector(".newcontact_modal").style.display = "flex";  
+            }
+            close_newcontact.onclick = function(){
+                document.querySelector(".newcontact_modal").style.display = "none";  
+            }
+                
+            function newcontact_modal() {
+                document.querySelector(".newcontact_modal").style.display = "flex";  
+            }
+        </script>
+                        
     
 </body>
 </html>
