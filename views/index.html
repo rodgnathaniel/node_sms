@@ -25,6 +25,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        display: none;
     }
 
     #number{
@@ -32,6 +33,7 @@
         height: 5%;
         margin-left: 30%;
         margin-right: 30%;
+        margin-top: 2.5%;
         margin-bottom: 2.5%;
         border-radius: 6px 6px 6px 6px;
         background-color:indianred;
@@ -203,6 +205,19 @@ nav button{
     overflow: hidden;  
     outline: none;
 }
+.close_message {
+    position: absolute;
+    top: 0;
+    right: 14px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;  
+    outline: none;
+}
 
 .contacts_display {
     background-color: rgba(255,255,240,0.7);
@@ -224,7 +239,7 @@ nav button{
         
         <nav>
                 <button id="view_contacts">Contacts</button>
-                <button id="messages">Messages</button>
+                <button id="messages">Message</button>
                 <button id="new_contact">Add Contact</button>
         </nav>
     </header>
@@ -259,8 +274,9 @@ nav button{
 
 
     <div class="container">
-
-        <h2>Simulizi</h2>
+<!-- 
+        <h2>Simulizi</h2> -->
+        <button class="close_message" id="close_message">+</button>
         
         <input type="tel" name="number" id="number" placeholder="Phone Number">
         <input type="text" name="msg" id="msg" placeholder="Enter text message">
@@ -279,6 +295,7 @@ nav button{
             let new_name = document.querySelector('#new_name')
             let new_phone = document.querySelector('#new_phone')
             let new_email = document.querySelector('#new_email')
+            let msg_create = document.querySelector('#messages')
         
             save_contact_btn.onclick = function() {        
                 axios.post("{% url 'home:save_contact' %}",
@@ -308,6 +325,10 @@ nav button{
                 
             function newcontact_modal() {
                 document.querySelector(".newcontact_modal").style.display = "flex";  
+            }
+
+            msg_create.onclick = function(){
+                document.querySelector(".container").style.display = "flex"; 
             }
         </script>
                         
